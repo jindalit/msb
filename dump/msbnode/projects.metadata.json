@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"msbnode.projects"},{"v":2,"unique":true,"key":{"name":1},"name":"name_1","ns":"msbnode.projects","background":true}],"uuid":"29a2153cc7f049d89244375a81cf17f6"}
