@@ -49,8 +49,10 @@ export default class Learning extends React.Component {
         })
     }
     handleSearch = (val, e) => {
-        this.setState({ userName: val, userId: e._id })
-        axios.get(services.baseUrl + services.getLearning + '?authToken=' + sessionStorage.getItem('authToken') + '&userId=' + e._id).then(response => {
+        const userName = e ? val : this.state.userName
+        const userId = e ? e._id : this.state.userId
+        this.setState({ userName, userId })
+        axios.get(services.baseUrl + services.getLearning + '?authToken=' + sessionStorage.getItem('authToken') + '&userId=' + userId).then(response => {
             this.setState({
                 learningList: response.data.data
             })

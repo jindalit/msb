@@ -51,8 +51,9 @@ class App extends Component {
               No Match
             </Route>
           </Switch>
+          <Footer />
         </Router>
-        <Footer />
+        
       </div>
     );
   }

@@ -79,7 +79,7 @@ class ViewIncident extends React.Component {
                                         {this.state.role === 'SuperAdmin' ? <tr>
 
                                             <td><strong> Detailed description (include names of all people involved):</strong></td>
-                                            <td>this.state.data.detailedDescription</td>
+                                            <td>{this.state.data.detailedDescription}</td>
                                         </tr> : ''}
 
                                         <tr>
