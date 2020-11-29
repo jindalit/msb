@@ -68,38 +68,29 @@ export default class JobDetail extends React.Component {
             })
         })
     }
-    toDataURL = (src, callback, outputFormat) => {
-        var img = new Image();
-        img.crossOrigin = 'Anonymous';
-        img.onload = function () {
-            var canvas = document.createElement('CANVAS');
-            var ctx = canvas.getContext('2d');
-            var dataURL;
-            canvas.height = this.naturalHeight;
-            canvas.width = this.naturalWidth;
-            ctx.drawImage(this, 0, 0);
-            dataURL = canvas.toDataURL(outputFormat);
-            callback(dataURL);
-        };
-        img.src = src.replace("\\/g", "/");;
-        
+    toDataURL = (url, fileName) => {
+        axios({
+            url,
+            method: 'GET',
+            responseType: 'blob',
+        }).then((response) => {
+            const blobbedResponse = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = blobbedResponse;
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+        });
+
     }
     render() {
         const files = []
         if (this.state.formData.files) {
             for (let i = 0; i < this.state.formData.files.length; i++) {
-                /* debugger
-                this.toDataURL(
-                    services.baseUrl + '/' + this.state.formData.files[i].path,
-                    dataUrl => {
-                        this.setState({ imgpath: dataUrl })
-                    }
-                ) */
-                //this.setState(.replace("\\/g", "/");)
                 files.push(
                     <tr>
                         <td>{this.state.formData.files[i].originalname}</td>
-                        <td><a target='_blank' href={(services.baseUrl + '/' + this.state.formData.files[i].path).replace("\\/g", "/")} download={this.state.formData.files[i].filename}><i class="fa fa-download" aria-hidden="true"></i> </a></td>
+                        <td><a onClick={() => { this.toDataURL((services.baseUrl + '/' + this.state.formData.files[i].path).replace("\\/g", "/"), this.state.formData.files[i].filename) }} className='download-file'><i class="fa fa-download" title={this.state.formData.files[i].filename} aria-hidden="true"></i> </a></td>
                     </tr>
                 )
             }
