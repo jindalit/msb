@@ -509,9 +509,10 @@ body {
   }
   .newsletter-section {
       background: #f2f3f8;
-      padding: 105px 0;
+      padding: 25px 0;
       float: left;
       width: 100%;
+      min-height: 340px;;
   
   }
   .form-control {
@@ -644,7 +645,7 @@ body {
   .modal-body.success .form-first {
       display: none;
   }
-  div#myModal .button .btn-primary, div#myModal1 .button .btn-primary, div#myModal2 .button .btn-primary  ,{
+  div#myModal .button .btn-primary, div#myModal1 .button .btn-primary, div#myModal2 .button .btn-primary {
       color: #fff;
       background-color: #3f82af;
       border-color: #3f82af;
@@ -1162,4 +1163,11 @@ left: 0px;
 }
 .jobs-table .table-striped tbody tr.hide{
     display: none;
+}
+.download-file {
+    cursor: pointer;
+    color: blue;
+}
+.download-file .fa-download {
+color: blue;
 }
