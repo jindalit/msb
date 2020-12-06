@@ -44,7 +44,7 @@ export default class Dialog extends React.Component {
                 { enable: this.props.enable }
             )
             if (this.props.reqId && (prevProps.reqId !== this.props.reqId) || prevState.closeFromEdit) {
-                this.setState({closeFromEdit: false})
+                this.setState({ closeFromEdit: false })
                 axios.post(services.baseUrl + services.getById + '?authToken=' + sessionStorage.getItem('authToken'), { '_id': this.props.reqId }).then(response => {
                     var data = response.data.data;
                     var formData = { ...this.state.formData }
@@ -313,6 +313,10 @@ export default class Dialog extends React.Component {
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <a target='_blank' href='http://go.microsoft.com/fwlink/?LinkId=518021'>Notice & Consent Statement</a><br />
+                                    </div></div>
                                 {
                                     this.state.reqName !== 'Turnkey Request' ?
                                         <div class="form-group">

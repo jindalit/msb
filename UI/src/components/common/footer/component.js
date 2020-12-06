@@ -39,6 +39,9 @@ export default function Footer(props) {
                                     <Link to='/about' className={"nav-link"} activeClassName='active'>ABOUT </Link>
                                 </li>
                                 <li class="nav-item">
+                                    <Link className={"nav-link"} activeClassName='active' to='/privacy'>Privacy Policy</Link>
+                                </li>
+                                <li class="nav-item">
                                     <Link className={"nav-link"} activeClassName='active' to='/tour'>TOURS</Link>
                                 </li>
                                 {role !== 'User' ? <li class="nav-item">

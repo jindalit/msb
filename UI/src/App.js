@@ -18,6 +18,7 @@ import AdminHome from './components/admin';
 import Learning from './components/admin/learning';
 import MyJobs from './components/myjobs';
 import ViewHistory from './components/viewhistory'
+import Privacy from './components/privacy'
 import JobDetail from './components/viewhistory/jobDetail'
 import './App.css';
 
@@ -43,7 +44,7 @@ class App extends Component {
             <ProtectedRoute path="/admin/learning" component={Learning} />
             <ProtectedRoute path="/admin" component={AdminHome} />
             <ProtectedRoute path='/viewHistory' component={ViewHistory} />
-            
+            <Route path="/privacy" component={Privacy} />
             <Route path='/jobDetail/:id' component={JobDetail} />
             <Route path="/login" component={Login} />
             <Route path='/Signup' component={Signup} />

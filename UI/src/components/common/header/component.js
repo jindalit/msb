@@ -58,6 +58,9 @@ export default function Header(props) {
                                 <NavLink to='/about' className={"nav-link"} activeClassName='active'>ABOUT </NavLink>
                             </li>
                             <li class="nav-item">
+                                <Link className={"nav-link"} activeClassName='active' to='/privacy'>Privacy Policy</Link>
+                            </li>
+                            <li class="nav-item">
                                 <NavLink className={"nav-link"} activeClassName='active' to='/tour'>TOURS</NavLink>
                             </li>
                             {role !== 'User' ? <li class="nav-item">
